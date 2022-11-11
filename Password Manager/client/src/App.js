@@ -1,5 +1,6 @@
 import './App.css';
 import {useState} from "react";
+import Axios from "axios";
 
 
 function App() {
@@ -10,6 +11,10 @@ const {website, setWebsite} = useState('')
 const {username, setUsername} = useState('')
 const {password, setPassword} = useState('')
 
+//function that makes the api request
+const addPassword = () => {
+  Axios.post('http://localhost:3001/addpassword', {title:title, website:website, username:username, password:password})
+;}
 
   return (
     <div className="App">
@@ -20,7 +25,7 @@ const {password, setPassword} = useState('')
     <input type="url" placeholder="Website URL" onChange={(event) => {setWebsite(event.target.value);}}/><br/>
     <input type="text" placeholder="User Name" onChange={(event) => {setUsername(event.target.value);}}/><br/>
     <input type="password" placeholder="Password" onChange={(event) => {setPassword(event.target.value);}}/><br/>
-    <input type="button" value="Add Password" /><br/>
+    <input onClick={addPassword} type="button" value="Add Password" /><br/>
   </form>
 
   <div className="circles">
