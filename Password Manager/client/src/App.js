@@ -4,7 +4,7 @@ import {useState} from "react";
 
 function App() {
 
-//creating a state for each value we get from the form 
+//creating a state for each value we get from the form to send them to the backend
 const {title, setTitle} = useState('')
 const {website, setWebsite} = useState('')
 const {username, setUsername} = useState('')
@@ -16,10 +16,10 @@ const {password, setPassword} = useState('')
     <div className="container"> 
   <form >
     <p>Welcome to Your Password Manager</p>
-    <input type="text" placeholder="Title" /><br/>
-    <input type="url" placeholder="Website URL" /><br/>
-    <input type="text" placeholder="User Name" /><br/>
-    <input type="password" placeholder="Password" /><br/>
+    <input type="text" placeholder="Title" onChange={(event) => {setTitle(event.target.value);}}/><br/>
+    <input type="url" placeholder="Website URL" onChange={(event) => {setWebsite(event.target.value);}}/><br/>
+    <input type="text" placeholder="User Name" onChange={(event) => {setUsername(event.target.value);}}/><br/>
+    <input type="password" placeholder="Password" onChange={(event) => {setPassword(event.target.value);}}/><br/>
     <input type="button" value="Add Password" /><br/>
   </form>
 
