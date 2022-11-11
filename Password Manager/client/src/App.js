@@ -1,6 +1,16 @@
 import './App.css';
+import {useState} from "react";
+
 
 function App() {
+
+//creating a state for each value we get from the form 
+const {title, setTitle} = useState('')
+const {website, setWebsite} = useState('')
+const {username, setUsername} = useState('')
+const {password, setPassword} = useState('')
+
+
   return (
     <div className="App">
     <div className="container"> 
