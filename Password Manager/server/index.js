@@ -1,8 +1,15 @@
 const express = require("express");
 const app = express();
 const PORT = 3001;
-const mysql = require('mysql');
+const mysql = require('mysql2');
+const cors = require('cors');
 
+
+//to allow us to connect to two servers (frontend and backend) on the same computer
+app.use(cors());
+
+//to be able to receive json on the backend
+app.use(express.json());
 
 //all queries related to mysql - creating a connection
 const db = mysql.createConnection({
