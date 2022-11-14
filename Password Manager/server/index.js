@@ -4,6 +4,7 @@ const PORT = 3001;
 const mysql = require('mysql2');
 const cors = require('cors');
 
+const {encrypt, decrypt} = require('./EncryptionHandler');
 
 //to allow us to connect to two servers (frontend and backend) on the same computer
 app.use(cors());
