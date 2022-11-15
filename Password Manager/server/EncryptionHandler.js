@@ -20,6 +20,7 @@ const decipher = crypto.createDecipheriv("aes-256-ctr", Buffer.from(secret), Buf
 //create the result of decryption
 const decryptedPassword = Buffer.concat([decipher.update(Buffer.from(encryption.password, "hex")), decipher.final()]);
 
+return decryptedPassword.toString()
 };
 
 module.exports = {encrypt, decrypt};
