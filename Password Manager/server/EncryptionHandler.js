@@ -3,12 +3,15 @@ const crypto = require("crypto");
 const secret = 'pppppppppppppppppppppppppppppppp';
 //encryption function
 const encrypt = (password) => {
-
 //identifier for the encryption - generates a buffer with 16 bytes
 const iv = Buffer.from(crypto.randomBytes(16));
 //create what will encrypt the password - cipher and pass the algorithm, buffered secret, and iv
 const cipher = crypto.createCipheriv("aes-256-ctr", Buffer.from(secret), iv);
-}
+//the result of the encryption
+const encryptedPassword = Buffer.concat([cipher.update(password), cipher.final()]);
+
+return { iv: iv.toString("hex"), password: encryptedPassword.toString("hex")};
+};
 
 //decryption function
 const decrypt = (encryption) => {
