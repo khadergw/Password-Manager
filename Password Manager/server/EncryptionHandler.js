@@ -15,7 +15,8 @@ return { iv: iv.toString("hex"), password: encryptedPassword.toString("hex")};
 
 //decryption function
 const decrypt = (encryption) => {
-
-}
+//create decipher that will decrypt the encrypted password
+const decipher = crypto.createDecipheriv("aes-256-ctr", Buffer.from(secret), Buffer.from(encryption.iv,"hex"));
+};
 
 module.exports = {encrypt, decrypt};
