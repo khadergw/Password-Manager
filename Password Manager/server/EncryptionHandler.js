@@ -4,6 +4,8 @@ const secret = 'pppppppppppppppppppppppppppppppp';
 //encryption function
 const encrypt = (password) => {
 
+//identifier for the encryption - generates a buffer with 16 bytes
+const iv = Buffer.from(crypto.randomBytes(16));
 }
 
 //decryption function
