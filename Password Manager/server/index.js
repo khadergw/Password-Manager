@@ -26,8 +26,10 @@ app.post("/addpassword", (req, res) => {
    //access the body(values in frontend) through req and pass them to backend
    const {title, website, username, password} = req.body
     
+   //encrypt the password before inserting it
+   const hashedPassword = encrypt(password);
    //passing sql query (insert) to insert the data in the db table
-   db.query("INSERT INTO passwords (title, website, username, password) VALUES (?,?,?,?)", [title, website, username, password],
+   db.query("INSERT INTO passwords (title, website, username, password, iv) VALUES (?,?,?,?,?)", [title, website, username, hashedPassword.password, hashedPassword.iv],
    (err, result)=> {
     if(err) {
         console.log(err);
