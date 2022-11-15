@@ -6,6 +6,8 @@ const encrypt = (password) => {
 
 //identifier for the encryption - generates a buffer with 16 bytes
 const iv = Buffer.from(crypto.randomBytes(16));
+//create what will encrypt the password - cipher and pass the algorithm, buffered secret, and iv
+const cipher = crypto.createCipheriv("aes-256-ctr", Buffer.from(secret), iv);
 }
 
 //decryption function
