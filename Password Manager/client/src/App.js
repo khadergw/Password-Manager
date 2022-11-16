@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Axios from "axios";
 
 
@@ -15,6 +15,13 @@ const [password, setPassword] = useState('')
 const addPassword = () => {
   Axios.post('http://localhost:3001/addpassword', {title:title, website:website, username:username, password:password})
 ;}
+
+//call api once the page renders
+useEffect(() => {
+  Axios.get('http://localhost:3001/showpasswords').then((response) => {
+    console.log(response.data);
+  });
+}, []);
 
   return (
     <div className="App">
