@@ -6,10 +6,11 @@ import Axios from "axios";
 function App() {
 
 //creating a state for each value we get from the form to send them to the backend
-const [title, setTitle] = useState('')
-const [website, setWebsite] = useState('')
-const [username, setUsername] = useState('')
-const [password, setPassword] = useState('')
+const [title, setTitle] = useState('');
+const [website, setWebsite] = useState('');
+const [username, setUsername] = useState('');
+const [password, setPassword] = useState('');
+const [passwordList, setPasswordList] = useState([]);
 
 //function that makes the api request
 const addPassword = () => {
@@ -19,7 +20,7 @@ const addPassword = () => {
 //call api once the page renders
 useEffect(() => {
   Axios.get('http://localhost:3001/showpasswords').then((response) => {
-    console.log(response.data);
+    setPasswordList(response.data);
   });
 }, []);
 
