@@ -34,7 +34,7 @@ useEffect(() => {
     <input type="text" placeholder="User Name" onChange={(event) => {setUsername(event.target.value);}}/><br/>
     <input type="password" placeholder="Password" onChange={(event) => {setPassword(event.target.value);}}/><br/>
     <input onClick={addPassword} type="button" value="Add Password" /><br/>
-  </form>
+  </form> 
 
   <div className="circles">
     <div className="circle circle-1"></div>
@@ -44,6 +44,11 @@ useEffect(() => {
     <div className="circle circle-5"></div>
   </div>
 
+    <div className='Passwords'>
+      {passwordList.map((val)=> {
+        return <h1>{val.title}</h1>;
+      })}
+    </div>
     </div>
     </div>
   );
