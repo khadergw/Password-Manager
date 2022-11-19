@@ -44,12 +44,16 @@ useEffect(() => {
     <div className="circle circle-5"></div>
   </div>
 
-    <div className='Passwords'>
+   
+  <div className='Passwords'>
       {passwordList.map((val)=> {
         return <div className='password'><h3>{val.title}</h3></div>;
       })}
     </div>
+
+
     </div>
+
     </div>
   );
 }

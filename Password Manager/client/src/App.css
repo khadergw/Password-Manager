@@ -129,7 +129,7 @@ p {
   .circle-3 {
     height: 100px;
     width: 100px;
-    bottom: 120px;
+    bottom: 70%;
     right: -50px;
     z-index: -1;
   }
@@ -137,7 +137,7 @@ p {
   .circle-4 {
     height: 120px;
     width: 120px;
-    top: -60px;
+    top: 50%;
     right: -60px;
   }
   
@@ -164,4 +164,23 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.password {
+
+  width: 400px;
+  height: 70px;
+  background: transparent;
+  padding: 1em;
+  margin-bottom: 2em;
+  /* border: none; */
+  border: 1px solid rgba(255,255,255,0.3);
+  /* border-top: 1px solid rgba(255,255,255,0.3); */
+  border-radius: 70px;
+  color:#fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  font-size: 20px;
 }
