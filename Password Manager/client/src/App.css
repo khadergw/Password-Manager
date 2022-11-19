@@ -122,7 +122,7 @@ p {
   .circle-2 {
     height: 80px;
     width: 80px;
-    bottom: -30px;
+    bottom: 60%;
     right: -10px;
   }
   
@@ -144,7 +144,7 @@ p {
   .circle-5 {
     height: 60px;
     width: 60px;
-    bottom: 36%;
+    bottom: 39%;
     left: 90px;
     z-index: -1;
   }
