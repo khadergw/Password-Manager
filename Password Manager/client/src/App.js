@@ -46,7 +46,7 @@ useEffect(() => {
 
     <div className='Passwords'>
       {passwordList.map((val)=> {
-        return <h1>{val.title}</h1>;
+        return <div className='password'><h3>{val.title}</h3></div>;
       })}
     </div>
     </div>
