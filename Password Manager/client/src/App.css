@@ -164,10 +164,11 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-block-start: 13%;
 }
 
 .password {
-
+  /* margin-top: 35%; */
   width: 400px;
   height: 70px;
   background: transparent;
@@ -176,11 +177,17 @@ button:focus {
   /* border: none; */
   border: 1px solid rgba(255,255,255,0.3);
   /* border-top: 1px solid rgba(255,255,255,0.3); */
-  border-radius: 70px;
+  border-radius: 7px;
   color:#fff;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px;
   font-size: 20px;
+  
+}
+
+.password:hover {
+  background-color: rgba(255,255,255,0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
 }
