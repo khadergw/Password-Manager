@@ -15,7 +15,12 @@ const [passwordList, setPasswordList] = useState([]);
 //function that makes the api request
 const addPassword = () => {
   Axios.post('http://localhost:3001/addpassword', {title:title, website:website, username:username, password:password})
-;}
+;};
+
+//function to decrypt the password
+const decryptPassword = (encryption) => {
+  Axios.post("http://localhost:3001/", { password: encryption.password, iv: encryption.iv});
+};
 
 //call api once the page renders
 useEffect(() => {
