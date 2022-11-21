@@ -54,7 +54,7 @@ useEffect(() => {
    
   <div className='Passwords'>
       {passwordList.map((val)=> {
-        return <div className='password'><h3>{val.title}</h3></div>;
+        return <div className='password' onClick={()=> {decryptpassword({password: val.password, iv: val.iv});}}><h3>{val.title}</h3></div>;
       })}
     </div>
 
