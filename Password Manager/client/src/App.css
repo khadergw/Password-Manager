@@ -87,10 +87,10 @@ p {
       }
     
   
-  
+/*   
   form:hover {
     margin: 4px;
-  }
+  } */
 
 
 ::placeholder {
@@ -184,7 +184,7 @@ button:focus {
   align-items: center;
   margin: 10px;
   font-size: 20px;
-  
+ cursor: pointer; 
 }
 
 .password:hover {
