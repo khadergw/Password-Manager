@@ -54,10 +54,17 @@ useEffect(() => {
    
   <div className='Passwords'>
       {passwordList.map((val, key)=> {
-        return <div className='password' onClick={()=> {decryptPassword({password: val.password, iv: val.iv});}}><h3>{val.title}</h3></div>;
-      })}
-      {/* key added to fix the warning in console */}
+        return <div
+        className='password' 
+        onClick={()=> {decryptPassword({password: val.password, iv: val.iv});
+      }}
+
       key={key}
+      >
+        <h3>{val.title}</h3>
+        </div>
+      })}
+      
     </div>
 
 
