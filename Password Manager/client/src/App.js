@@ -19,7 +19,9 @@ const addPassword = () => {
 
 //function to decrypt the password
 const decryptPassword = (encryption) => {
-  Axios.post("http://localhost:3001/", { password: encryption.password, iv: encryption.iv});
+  Axios.post("http://localhost:3001/decryptpassword", { password: encryption.password, iv: encryption.iv}).then((response)=> {
+  console.log(response.data);  
+  });
 };
 
 //call api once the page renders
