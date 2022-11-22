@@ -20,7 +20,9 @@ const addPassword = () => {
 //function to decrypt the password
 const decryptPassword = (encryption) => {
   Axios.post("http://localhost:3001/decryptpassword", { password: encryption.password, iv: encryption.iv}).then((response)=> {
-  console.log(response.data);  
+  setPasswordList(passwordList.map((val)=> {
+    return val.id == encryption.id ? {id: val.id, password: val.password, title: response.data, iv:val.iv} : val;
+  })) 
   });
 };
 
