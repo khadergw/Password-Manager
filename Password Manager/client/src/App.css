@@ -129,7 +129,7 @@ p {
   .circle-3 {
     height: 100px;
     width: 100px;
-    bottom: 70%;
+    bottom: 60%;
     right: -50px;
     z-index: -1;
   }
