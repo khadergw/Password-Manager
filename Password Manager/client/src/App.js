@@ -27,9 +27,6 @@ const decryptPassword = (encryption) => {
   });
 };
 
-const handleClick = () => {
-  setIsDivClicked(!isDivClicked); 
- };
 
 
 
