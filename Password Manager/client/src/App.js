@@ -74,12 +74,14 @@ useEffect(() => {
  
 return <div
 className='password' 
-onClick={handleClick}
+onClick={handleClick} 
+{...isDivClicked ? val.title :decryptPassword({password: val.password, iv: val.iv, id: val.id})} 
 
 key={key}
 >
 
-{isDivClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}
+<h3>{val.title}</h3>
+
 </div>
 })}
 </div>
