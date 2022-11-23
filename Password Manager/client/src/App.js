@@ -11,6 +11,7 @@ const [website, setWebsite] = useState('');
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [passwordList, setPasswordList] = useState([]);
+const [isDivClicked, setIsDivClicked] = useState(false);
 
 //function that makes the api request
 const addPassword = () => {
@@ -26,6 +27,12 @@ const decryptPassword = (encryption) => {
   });
 };
 
+const handleClick = () => {
+  setIsDivClicked(!isDivClicked); 
+ };
+
+
+
 //call api once the page renders
 useEffect(() => {
   Axios.get('http://localhost:3001/showpasswords').then((response) => {
@@ -33,8 +40,12 @@ useEffect(() => {
   });
 }, []);
 
+
+
+
   return (
     <div className="App">
+      
     <div className="container"> 
   <form >
     <p>Welcome to Your Password Manager</p>
@@ -54,26 +65,30 @@ useEffect(() => {
   </div>
 
    
-  <div className='Passwords'>
-      {passwordList.map((val, key)=> {
-        return <div
-        className='password' 
-        onClick={()=> {decryptPassword({password: val.password, iv: val.iv, id: val.id});
-      }}
+  
 
-      key={key}
-      >
-        <h3>{val.title}</h3>
-        </div>
-      })}
+
+    <div className='Passwords'>
       
-    </div>
+{passwordList.map((val, key)=> {
+ 
+return <div
+className='password' 
+onClick={handleClick}
 
+key={key}
+>
+
+{isDivClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}
+</div>
+})}
+</div>
 
     </div>
 
     </div>
   );
 }
+
 
 export default App;
