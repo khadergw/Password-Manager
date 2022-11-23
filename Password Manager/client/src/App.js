@@ -27,7 +27,10 @@ const decryptPassword = (encryption) => {
   });
 };
 
-
+//function that handles the click of password sections
+const handleClick = () => {
+  setIsDivClicked(!isDivClicked); 
+  };
 
 
 //call api once the page renders
