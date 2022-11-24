@@ -11,7 +11,7 @@ const [website, setWebsite] = useState('');
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [passwordList, setPasswordList] = useState([]);
-const [isDivClicked, setIsDivClicked] = useState(true);
+const [isNotClicked, setIsNotClicked] = useState(true);
 
 //function that makes the api request
 const addPassword = () => {
@@ -29,7 +29,7 @@ const decryptPassword = (encryption) => {
 
 //function that handles the click of password sections
 const handleClick = () => {
-  setIsDivClicked(!isDivClicked); 
+  setIsNotClicked(!isNotClicked); 
   };
 
 
@@ -76,9 +76,9 @@ useEffect(() => {
 return <div
 className='password' 
 // onClick={handleClick} 
-// {...isDivClicked ?  decryptPassword({password: val.password, iv: val.iv, id: val.id}) : val.title} 
+// {...isNotClicked ?  decryptPassword({password: val.password, iv: val.iv, id: val.id}) : val.title} 
 
-onClick={() => setIsDivClicked(!isDivClicked) }
+onClick={() => setIsNotClicked(!isNotClicked) }
 
 key={key}
 
@@ -86,7 +86,7 @@ key={key}
 
 {/* <h3>{val.title}</h3> */}
 
-{isDivClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})} 
+{isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})} 
 
 </div>
 
