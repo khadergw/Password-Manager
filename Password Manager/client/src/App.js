@@ -78,7 +78,7 @@ className='password'
 // onClick={handleClick} 
 // {...isNotClicked ?  decryptPassword({password: val.password, iv: val.iv, id: val.id}) : val.title} 
 
-onClick={() => setIsNotClicked(!isNotClicked) }
+onClick={handleClick}
 
 key={key}
 
