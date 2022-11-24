@@ -11,7 +11,7 @@ const [website, setWebsite] = useState('');
 const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');
 const [passwordList, setPasswordList] = useState([]);
-const [isDivClicked, setIsDivClicked] = useState(false);
+const [isDivClicked, setIsDivClicked] = useState(true);
 
 //function that makes the api request
 const addPassword = () => {
@@ -72,24 +72,37 @@ useEffect(() => {
       
 {passwordList.map((val, key)=> {
  
+
 return <div
 className='password' 
-onClick={handleClick} 
-{...isDivClicked ?  decryptPassword({password: val.password, iv: val.iv, id: val.id}) : val.title} 
+// onClick={handleClick} 
+// {...isDivClicked ?  decryptPassword({password: val.password, iv: val.iv, id: val.id}) : val.title} 
+
+onClick={() => setIsDivClicked(!isDivClicked) }
 
 key={key}
+
 >
 
-<h3>{val.title}</h3>
+{/* <h3>{val.title}</h3> */}
+
+{isDivClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})} 
 
 </div>
+
+
 })}
+
+
 </div>
 
-    </div>
 
     </div>
+ 
+    </div>
+  
   );
+  
 }
 
 
