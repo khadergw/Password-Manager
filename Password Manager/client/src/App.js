@@ -13,6 +13,7 @@ const [password, setPassword] = useState('');
 const [passwordList, setPasswordList] = useState([]);
 const [isNotClicked, setIsNotClicked] = useState(true);
 
+
 //function that makes the api request
 const addPassword = () => {
   Axios.post('http://localhost:3001/addpassword', {title:title, website:website, username:username, password:password})
@@ -26,6 +27,8 @@ const decryptPassword = (encryption) => {
   })) 
   });
 };
+
+
 
 //function that handles the click of password sections
 const handleClick = () => {
@@ -75,10 +78,10 @@ useEffect(() => {
 
 return <div
 className='password' 
-// onClick={handleClick} 
+onClick={handleClick} 
 // {...isNotClicked ?  decryptPassword({password: val.password, iv: val.iv, id: val.id}) : val.title} 
 
-onClick={handleClick}
+// onClick={handleClick}
 
 key={key}
 
