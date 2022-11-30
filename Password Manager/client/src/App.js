@@ -16,8 +16,10 @@ const [isNotClicked, setIsNotClicked] = useState(true);
 
 //function that makes the api request
 const addPassword = () => {
-  Axios.post('http://localhost:3001/addpassword', {title:title, website:website, username:username, password:password})
-;};
+  Axios.post('http://localhost:3001/addpassword', {title:title, website:website, username:username, password:password});
+ 
+
+};
 
 //function to decrypt the password
 const decryptPassword = (encryption) => {
@@ -31,10 +33,22 @@ const decryptPassword = (encryption) => {
 
 
 //function that handles the click of password sections
-const handleClick = () => {
+const handleClick = (val) => {
   setIsNotClicked(!isNotClicked); 
+  if(isNotClicked) {
+    return val.title;
+  } else {return decryptPassword({password: val.password, iv: val.iv, id: val.id})}
   };
 
+
+  const handleClearClick = () => {
+  //clear the inputs after submit
+setTitle("")
+setWebsite("")
+setUsername("")
+setPassword("")
+    };
+  
 
 //call api once the page renders
 useEffect(() => {
@@ -56,7 +70,10 @@ useEffect(() => {
     <input type="url" placeholder="Website URL" onChange={(event) => {setWebsite(event.target.value);}}/><br/>
     <input type="text" placeholder="User Name" onChange={(event) => {setUsername(event.target.value);}}/><br/>
     <input type="password" placeholder="Password" onChange={(event) => {setPassword(event.target.value);}}/><br/>
-    <input onClick={addPassword} type="button" value="Add Password" /><br/>
+    <input  onClick={() => {
+          addPassword();
+          handleClearClick();
+        }} type="button" value="Add Password" /><br/>
   </form> 
 
   <div className="circles">
@@ -78,10 +95,10 @@ useEffect(() => {
 
 return <div
 className='password' 
-onClick={handleClick} 
-// {...isNotClicked ?  decryptPassword({password: val.password, iv: val.iv, id: val.id}) : val.title} 
 
-// onClick={handleClick}
+
+
+onClick={handleClick}
 
 key={key}
 
@@ -89,7 +106,8 @@ key={key}
 
 {/* <h3>{val.title}</h3> */}
 
-{isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})} 
+{/* {isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}  */}
+
 
 </div>
 
@@ -107,6 +125,7 @@ key={key}
   );
   
 }
+
 
 
 export default App;
