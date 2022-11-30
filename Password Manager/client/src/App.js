@@ -43,7 +43,7 @@ const handleClick = (val) => {
   const handleClearClick = (event) => {
   //clear the inputs after submit
   event.preventDefault();
-  setUsername('');
+  event.target.reset();
 // setTitle('');
 // setWebsite("")
 // setUsername("")
@@ -65,7 +65,7 @@ useEffect(() => {
     <div className="App">
       
     <div className="container"> 
-  <form >
+  <form>
     <p>Welcome to Your Password Manager</p>
     <input type="text" placeholder="Title" onChange={(event) => {setTitle(event.target.value);}}/><br/>
     <input type="url" placeholder="Website URL" onChange={(event) => {setWebsite(event.target.value);}}/><br/>
