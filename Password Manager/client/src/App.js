@@ -18,7 +18,6 @@ const [isNotClicked, setIsNotClicked] = useState(true);
 const addPassword = () => {
   Axios.post('http://localhost:3001/addpassword', {title:title, website:website, username:username, password:password});
  
-
 };
 
 //function to decrypt the password
@@ -41,12 +40,14 @@ const handleClick = (val) => {
   };
 
 
-  const handleClearClick = () => {
+  const handleClearClick = (event) => {
   //clear the inputs after submit
-setTitle("")
-setWebsite("")
-setUsername("")
-setPassword("")
+  event.preventDefault();
+  setUsername('');
+// setTitle('');
+// setWebsite("")
+// setUsername("")
+// setPassword("")
     };
   
 
@@ -73,6 +74,8 @@ useEffect(() => {
     <input  onClick={() => {
           addPassword();
           handleClearClick();
+          // setUsername('');
+          
         }} type="button" value="Add Password" /><br/>
   </form> 
 
