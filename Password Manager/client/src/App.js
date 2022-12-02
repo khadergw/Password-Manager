@@ -2,6 +2,8 @@ import './App.css';
 import {useState, useEffect} from "react";
 import Axios from "axios";
 
+// import { event } from 'cypress/types/jquery';
+
 
 function App() {
 
@@ -17,7 +19,7 @@ const [isNotClicked, setIsNotClicked] = useState(true);
 //function that makes the api request
 const addPassword = () => {
   Axios.post('http://localhost:3001/addpassword', {title:title, website:website, username:username, password:password});
- 
+ console.log('add password function')
 };
 
 //function to decrypt the password
@@ -50,15 +52,15 @@ const handleClick = (val) => {
 // setPassword("")
     };
   
-    const handleSubmit = event => {
+    const handleSubmit = (e) => {
       console.log('handleSubmit ran');
-      event.preventDefault(); // prevent page refresh
+      e.preventDefault(); // prevent page refresh
   
       //clear all input values in the form
-      setTitle('');
-      setWebsite('');
-      setUsername('');
-      setPassword('');
+      setTitle('new');
+      setWebsite('new');
+      setUsername('new');
+      setPassword('new');
     };
   
 
@@ -66,7 +68,7 @@ const handleClick = (val) => {
 useEffect(() => {
   Axios.get('http://localhost:3001/showpasswords').then((response) => {
     setPasswordList(response.data);
-  });
+    });
 }, []);
 
 
@@ -76,17 +78,19 @@ useEffect(() => {
     <div className="App">
       
     <div className="container"> 
-  <form onSubmit={() => {console.log('onsubmit form')}}>
+  <form onSubmit={(e) => handleSubmit(e)}>
     <p>Welcome to Your Password Manager</p>
     <input type="text" placeholder="Title" onChange={(event) => {setTitle(event.target.value);}}/><br/>
     <input type="url" placeholder="Website URL" onChange={(event) => {setWebsite(event.target.value);}}/><br/>
     <input type="text" placeholder="User Name" onChange={(event) => {setUsername(event.target.value);}}/><br/>
     <input type="password" placeholder="Password" onChange={(event) => {setPassword(event.target.value);}}/><br/>
     <input  onClick={() => {
+          // handleSubmit();
           addPassword();
           // handleClearClick();
           // setUsername('');
           console.log('added value');
+          
         
           
         }} type="button" value="Add Password" /><br/>
