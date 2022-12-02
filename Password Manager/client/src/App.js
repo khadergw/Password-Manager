@@ -42,12 +42,23 @@ const handleClick = (val) => {
 
   const handleClearClick = (event) => {
   //clear the inputs after submit
-  event.preventDefault();
-  event.target.reset();
+  // event.preventDefault();
+  // event.target.reset();
 // setTitle('');
 // setWebsite("")
 // setUsername("")
 // setPassword("")
+    };
+  
+    const handleSubmit = event => {
+      console.log('handleSubmit ran');
+      event.preventDefault(); // prevent page refresh
+  
+      //clear all input values in the form
+      setTitle('');
+      setWebsite('');
+      setUsername('');
+      setPassword('');
     };
   
 
@@ -65,7 +76,7 @@ useEffect(() => {
     <div className="App">
       
     <div className="container"> 
-  <form>
+  <form onSubmit={handleSubmit}>
     <p>Welcome to Your Password Manager</p>
     <input type="text" placeholder="Title" onChange={(event) => {setTitle(event.target.value);}}/><br/>
     <input type="url" placeholder="Website URL" onChange={(event) => {setWebsite(event.target.value);}}/><br/>
@@ -73,8 +84,9 @@ useEffect(() => {
     <input type="password" placeholder="Password" onChange={(event) => {setPassword(event.target.value);}}/><br/>
     <input  onClick={() => {
           addPassword();
-          handleClearClick();
+          // handleClearClick();
           // setUsername('');
+        
           
         }} type="button" value="Add Password" /><br/>
   </form> 
