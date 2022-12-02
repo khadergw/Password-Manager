@@ -8,12 +8,12 @@ import Axios from "axios";
 function App() {
 
 //creating a state for each value we get from the form to send them to the backend
-const [title, setTitle] = useState('');
-const [website, setWebsite] = useState('');
-const [username, setUsername] = useState('');
-const [password, setPassword] = useState('');
-const [passwordList, setPasswordList] = useState([]);
-const [isNotClicked, setIsNotClicked] = useState(true);
+let [title, setTitle] = useState('');
+let [website, setWebsite] = useState('');
+let [username, setUsername] = useState('');
+let [password, setPassword] = useState('');
+let [passwordList, setPasswordList] = useState([]);
+let [isNotClicked, setIsNotClicked] = useState(true);
 
 
 //function that makes the api request
@@ -52,7 +52,7 @@ const handleClick = (val) => {
 // setPassword("")
     };
   
-    const handleSubmit = (e) => {
+    let handleSubmit = (e) => {
       console.log('handleSubmit ran');
       e.preventDefault(); // prevent page refresh
   
@@ -93,7 +93,7 @@ useEffect(() => {
           
         
           
-        }} type="button" value="Add Password" /><br/>
+        }} type="submit" value="Add Password" /><br/>
   </form> 
 
   <div className="circles">
