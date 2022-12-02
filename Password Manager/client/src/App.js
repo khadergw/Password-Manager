@@ -78,7 +78,7 @@ useEffect(() => {
     <div className="App">
       
     <div className="container"> 
-  <form onSubmit={(e) => handleSubmit(e)}>
+  <form method='post' onSubmit={(e) => handleSubmit(e)}>
     <p>Welcome to Your Password Manager</p>
     <input type="text" placeholder="Title" onChange={(event) => {setTitle(event.target.value);}}/><br/>
     <input type="url" placeholder="Website URL" onChange={(event) => {setWebsite(event.target.value);}}/><br/>
