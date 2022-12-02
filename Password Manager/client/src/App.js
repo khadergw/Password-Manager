@@ -76,7 +76,7 @@ useEffect(() => {
     <div className="App">
       
     <div className="container"> 
-  <form onSubmit={handleSubmit}>
+  <form onSubmit={() => {console.log('onsubmit form')}}>
     <p>Welcome to Your Password Manager</p>
     <input type="text" placeholder="Title" onChange={(event) => {setTitle(event.target.value);}}/><br/>
     <input type="url" placeholder="Website URL" onChange={(event) => {setWebsite(event.target.value);}}/><br/>
@@ -86,6 +86,7 @@ useEffect(() => {
           addPassword();
           // handleClearClick();
           // setUsername('');
+          console.log('added value');
         
           
         }} type="button" value="Add Password" /><br/>
