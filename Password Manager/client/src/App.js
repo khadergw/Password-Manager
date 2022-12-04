@@ -8,12 +8,12 @@ import Axios from "axios";
 function App() {
 
 //creating a state for each value we get from the form to send them to the backend
-let [title, setTitle] = useState('');
-let [website, setWebsite] = useState('');
-let [username, setUsername] = useState('');
-let [password, setPassword] = useState('');
-let [passwordList, setPasswordList] = useState([]);
-let [isNotClicked, setIsNotClicked] = useState(true);
+const [title, setTitle] = useState('');
+const [website, setWebsite] = useState('');
+const [username, setUsername] = useState('');
+const [password, setPassword] = useState('');
+const [passwordList, setPasswordList] = useState([]);
+const [isNotClicked, setIsNotClicked] = useState(true);
 
 
 //function that makes the api request
@@ -52,15 +52,15 @@ const handleClick = (val) => {
 // setPassword("")
     };
   
-    let handleSubmit = (e) => {
+    const handleSubmit = (e) => {
       console.log('handleSubmit ran');
       e.preventDefault(); // prevent page refresh
   
       //clear all input values in the form
-      setTitle('new');
-      setWebsite('new');
-      setUsername('new');
-      setPassword('new');
+      setTitle('');
+      setWebsite('');
+      setUsername('');
+      setPassword('');
     };
   
 
@@ -118,8 +118,9 @@ className='password'
 
 
 
-onClick={handleClick}
+// onClick={handleClick}
 
+onClick={()=>{isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}}
 key={key}
 
 >
