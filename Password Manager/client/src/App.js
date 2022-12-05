@@ -36,10 +36,12 @@ const decryptPassword = (encryption) => {
 //function that handles the click of password sections
 const handleClick = (val) => {
   setIsNotClicked(!isNotClicked); 
-  if(isNotClicked) {
-    return val.title;
-  } else {return decryptPassword({password: val.password, iv: val.iv, id: val.id})}
-  };
+  console.log(isNotClicked)
+  
+  // if(isNotClicked) {
+  //   return val.title;
+  // } else {return decryptPassword({password: val.password, iv: val.iv, id: val.id})}
+  }
 
 
   const handleClearClick = (event) => {
@@ -118,14 +120,15 @@ className='password'
 
 
 
-// onClick={handleClick}
+onClick={handleClick && isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}
 
-onClick={()=>{isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}}
+
+// onClick={()=>{isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}}
 key={key}
 
 >
 
-{/* <h3>{val.title}</h3> */}
+<h3>{val.title}</h3>
 
 {/* {isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}  */}
 
