@@ -34,7 +34,7 @@ const decryptPassword = (encryption) => {
 
 
 //function that handles the click of password sections
-const handleClick = (val) => {
+const handleClick = () => {
   setIsNotClicked(!isNotClicked); 
   console.log(isNotClicked)
   
@@ -120,7 +120,7 @@ className='password'
 
 
 
-onClick={handleClick && isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}
+onClick={()=> (handleClick ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id}))}
 
 
 // onClick={()=>{isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}}
