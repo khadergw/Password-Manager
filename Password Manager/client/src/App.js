@@ -120,7 +120,7 @@ className='password'
 
 
 
-onClick={()=> (handleClick ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id}))}
+onClick={()=> (handleClick() ? console.log(handleClick) && val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id}))}
 
 
 // onClick={()=>{isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}}
