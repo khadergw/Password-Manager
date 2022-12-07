@@ -44,6 +44,16 @@ const handleClick = () => {
   }
 
 
+const onTogglePane = (val) => {
+   setIsNotClicked(!isNotClicked); 
+  if(isNotClicked) {
+     return val.title;
+     } else {return decryptPassword({password: val.password, iv: val.iv, id: val.id})}
+    }
+  
+  
+
+
   const handleClearClick = (event) => {
   //clear the inputs after submit
   // event.preventDefault();
@@ -118,9 +128,10 @@ useEffect(() => {
 return <div
 className='password' 
 
+onClick={onTogglePane(val)}
+// onToggle = {onTogglePane}
 
-
-onClick={()=> (handleClick() ? console.log(handleClick) && val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id}))}
+// onToggle={()=> (setIsNotClicked(false) ? console.log(handleClick) && val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id}))}
 
 
 // onClick={()=>{isNotClicked ? val.title : decryptPassword({password: val.password, iv: val.iv, id: val.id})}}
